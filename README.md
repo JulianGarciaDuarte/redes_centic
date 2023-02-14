@@ -1,1 +1,8 @@
-Este es un archivo con la configuracion necesaria para hacer un mapeo del CENTIC, edificio de IT en la Universidad Industrial de Santander
+# PROYECTO FINAL REDES 2
+
+Este repositorio contiene los archivos de configuracion usados para simular la red del CENTIC 
+
+# LINK VIDEO YOUTUBE
+https://youtu.be/ZTo7Sh2dfaQ
+
+
