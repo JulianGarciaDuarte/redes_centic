@@ -1,0 +1,30 @@
+# Se accede al modo privilegiado
+enable
+configure terminal
+hostname S6P1
+enable secret cisco1
+service password-encryption 
+
+# Se crea la vlan 15 y se agregan sus hosts
+vlan 15
+name P1SALON5
+interface range f0/1-21
+switchport mode access
+switchport access vlan 15
+end
+
+# Se crea la vlan Administrative y se agregan sus hosts
+vlan 2
+name Administrative
+interface range f0/22-23
+switchport mode access
+switchport access vlan 2
+
+# Se configura el puerto trunk
+interface g0/1
+switcport mode trunk
+switchport trunk native vlan 15
+
+# Se guarda la configuracion
+copy running-confug startup-config
+

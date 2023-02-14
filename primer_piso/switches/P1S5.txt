@@ -1,0 +1,27 @@
+# Se entra al modo privilegiado
+enable
+configure terminal
+hostname S5P1
+enable secret cisco1
+
+# Se agrega al vlan 14 y sus hosts
+vlan 14
+name P1SALON4
+interface range f0/1-16
+switchport mode access
+switchport access vlan 14
+end
+
+# Se agrega la vlan 15 y sus hosts
+vlan 15
+name P1SALON5
+interface range f0/17-24
+switchport mode access
+switchport access vlan 15
+
+# Se configura el puerto trunk
+interface g0/1
+switchport mode trunk
+switchport trunk native vlan 14
+
+copy running-config startup-config

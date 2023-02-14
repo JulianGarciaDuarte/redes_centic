@@ -1,0 +1,32 @@
+
+enable 
+configure terminal
+hostname S1LOCP1
+enable secret cisco1
+service password-encryption
+
+# Se configuran los puertos trunk para las vlan
+interface range f0/1-6
+switchport mode trunk
+
+interface f0/1
+switchport trunk native vlan 11
+
+interface f0/2
+switchport trunk native vlan 12
+
+interface f0/3
+switchport trunk native vlan 13
+
+interface f0/4 
+switchport trunk native vlan 14
+
+interface f0/5
+swtichport trunk native vlan 14
+
+inteface f0/6 
+switchport trunk native vlan 15
+
+# Se copia la configuracion a la memoria no volatil
+copy running-config startup-config
+

@@ -1,0 +1,20 @@
+# Se accede al modo privilegiado
+enable
+configure terminal
+
+# Configura el servidor dhcp
+ip dhcp pool DHCP_PISO1
+network 10.10.0.0 255.255.255.128
+default-router 10.10.0.1
+exit
+
+# Configura la interfaz conectada al switch de hosts
+interface gigabitethernet0/0/0 
+no shutdown
+ip address 10.10.0.1 255.255.255.128
+end
+
+# Copia la configuracion
+copy running-config startup-config
+
+

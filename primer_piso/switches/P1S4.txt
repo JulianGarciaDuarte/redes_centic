@@ -1,0 +1,30 @@
+# Se entra a modo privilegiado
+enable
+configure terminal
+hostname S4P1
+enable secret cisco1
+service password-encryption
+
+# Se agrega la vlan 13 y sus hosts
+vlan 13
+name P1SALON3
+interface range f0/1-11
+switchport mode access
+swtichport access vlan 13
+end
+
+# Se agrega la vlan 14 y sus hosts
+vlan 14
+name P1SALON4
+interface range f0/12-24
+switchport mode access 
+swithcport access vlan14
+
+# Se configura el puerto trunk 
+interface g0/1
+switchport mode trunk
+switchport trunk native vlan 14
+
+# Copia la configuracion a la memoria de inicio
+copy running-config startup-config
+

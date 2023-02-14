@@ -1,0 +1,29 @@
+# Se entra en modo privilegiado
+enable
+configure terminal
+hostname S1P1
+enable secret cisco1
+
+# Se configura la vlan para el primer salon
+vlan 11
+name P1SALON1
+
+# Se configuran los puertos para esa vlan
+interface range f0/1-24
+swithcport mode access
+swithcport access vlan 11
+end
+
+# Se configura el puerto trunk
+interface g0/1	
+switchport mode trunk
+switchport trunk native vlan 11
+
+interface g0/2
+switchport mode trunk
+switchport trunk native vlan 12
+
+# Muestra la configuracion de la interface
+show running-config 
+copy running-config startup-config
+
